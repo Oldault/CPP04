@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:28:00 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:16:46 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/02 14:24:54 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() : Animal("Cat")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-  std::cout << FGRN("Cat default constructor called\n");
+  std::cout << FGRN("WrongCat default constructor called\n");
 
   return ;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-  std::cout << FRED("Cat destructor called\n");
+  std::cout << FRED("WrongCat destructor called\n");
 
   return ;
 }
 
-Cat::Cat(const Cat& src)
+WrongCat::WrongCat(const WrongCat& src)
 {
   *this = src;
-  std::cout << FGRN("Cat copy assignement called\n");
+  std::cout << FGRN("WrongCat copy assignement called\n");
 
   return ;
 }
 
-Cat& Cat::operator=(const Cat& src)
+WrongCat& WrongCat::operator=(const WrongCat& src)
 {
-  std::cout << FGRN("Cat copy operator called\n");
+  std::cout << FGRN("WrongCat copy operator called\n");
   if (this != &src) {
     _type = src._type;
   }
@@ -44,9 +44,9 @@ Cat& Cat::operator=(const Cat& src)
   return *this;
 }
 
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
-  std::cout << KMAG << ITAL("\t* Gentle Meowing and purring  *\n") << RST;
+  std::cout << KMAG << ITAL("\t* Wrong Meowing and purring  *\n") << RST;
 
   return ;
 }
