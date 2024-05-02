@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:27:25 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:25:12 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/02 14:49:17 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-  std::cout << FGRN("WrongAnimal default constructor called\n");
+  std::cout << BOLD(FGRN("WrongAnimal ")) << UNDL(FGRN("default")) << FGRN(" constructor called\n");
 
   return ;
 }
 
 WrongAnimal::WrongAnimal(const std::string& type) : _type(type)
 {
-  std::cout << FGRN("WrongAnimal constructor called on ") << BOLD_A << KGRN << type << RST << "\n";
+  std::cout << BOLD(FGRN("WrongAnimal")) << FGRN(" on ") << UNDL(FGRN( << type << )) << FGRN(" constructor called\n");
 
   return ;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-  std::cout << FRED("WrongAnimal destructor called\n");
+  std::cout << BOLD(FRED("WrongAnimal")) << FRED(" destructor called\n");
 
   return ;
 }
@@ -36,14 +36,14 @@ WrongAnimal::~WrongAnimal()
 WrongAnimal::WrongAnimal(const WrongAnimal& src)
 {
   *this = src;
-  std::cout << FGRN("WrongAnimal copy assignement called\n");
+  std::cout << BOLD(FGRN("WrongAnimal ")) << FGRN(" copy assignement called\n");
 
   return ;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& src)
 {
-  std::cout << FGRN("WrongAnimal copy operator called\n");
+  std::cout << BOLD(FGRN("WrongAnimal ")) << FGRN(" copy operator called\n");
   if (this != &src) {
     _type = src._type;
   }
@@ -53,7 +53,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& src)
 
 void WrongAnimal::makeSound() const 
 {
-  std::cout << KMAG << ITAL("\t* Wrong sounding Animal screeches *\n") << RST;
+  std::cout << FMAG(ITAL("\t* Unknown WrongAnimal screeches *\n"));
 
   return ;
 }

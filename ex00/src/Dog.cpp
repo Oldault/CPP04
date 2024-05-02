@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:27:38 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:14:08 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/02 14:48:14 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Dog::Dog() : Animal("Dog")
 {
-  std::cout << FGRN("Dog default constructor called\n");
+  std::cout << BOLD(FGRN("Dog ")) << UNDL(FGRN("default")) << FGRN(" constructor called\n");
 
   return ;
 }
 
 Dog::~Dog()
 {
-  std::cout << FRED("Dog destructor called\n");
+  std::cout << BOLD(FRED("Dog")) << FRED(" destructor called\n");
 
   return ;
 }
@@ -29,14 +29,14 @@ Dog::~Dog()
 Dog::Dog(const Dog& src)
 {
   *this = src;
-  std::cout << FGRN("Dog copy assignement called\n");
+  std::cout << BOLD(FGRN("Dog ")) << FGRN(" copy assignement called\n");
 
   return ;
 }
 
 Dog& Dog::operator=(const Dog& src)
 {
-  std::cout << FGRN("Dog copy operator called\n");
+  std::cout << BOLD(FGRN("Dog ")) << FGRN(" copy operator called\n");
   if (this != &src) {
     _type = src._type;
   }
@@ -46,8 +46,7 @@ Dog& Dog::operator=(const Dog& src)
 
 void Dog::makeSound() const
 {
-  std::cout << KMAG << ITAL("\t* Loud Barking *\n") << RST;
-
+  std::cout << FMAG(ITAL("\t* Agressive Barking *\n"));
+ 
   return ;
 }
-

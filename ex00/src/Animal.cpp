@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:27:25 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:14:14 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/02 14:43:06 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 Animal::Animal() : _type("Animal")
 {
-  std::cout << FGRN("Animal default constructor called\n");
+  std::cout << BOLD(FGRN("Animal ")) << UNDL(FGRN("default")) << FGRN(" constructor called\n");
 
   return ;
 }
 
 Animal::Animal(const std::string& type) : _type(type)
 {
-  std::cout << FGRN("Animal constructor called on ") << BOLD_A << KGRN << type << RST << "\n";
+  std::cout << BOLD(FGRN("Animal")) << FGRN(" on ") << UNDL(FGRN( << type << )) << FGRN(" constructor called\n");
 
   return ;
 }
 
 Animal::~Animal()
 {
-  std::cout << FRED("Animal destructor called\n");
+  std::cout << BOLD(FRED("Animal")) << FRED(" destructor called\n");
 
   return ;
 }
@@ -36,14 +36,14 @@ Animal::~Animal()
 Animal::Animal(const Animal& src)
 {
   *this = src;
-  std::cout << FGRN("Animal copy assignement called\n");
+  std::cout << BOLD(FGRN("Animal ")) << FGRN(" copy assignement called\n");
 
   return ;
 }
 
 Animal& Animal::operator=(const Animal& src)
 {
-  std::cout << FGRN("Animal copy operator called\n");
+  std::cout << BOLD(FGRN("Animal ")) << FGRN(" copy operator called\n");
   if (this != &src) {
     _type = src._type;
   }
@@ -53,7 +53,7 @@ Animal& Animal::operator=(const Animal& src)
 
 void Animal::makeSound() const 
 {
-  std::cout << KMAG << ITAL("\t* Unknown animal screeches *\n") << RST;
+  std::cout << FMAG(ITAL("\t* Unknown animal screeches *\n"));
 
   return ;
 }

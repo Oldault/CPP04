@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:28:00 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:24:54 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/02 14:50:05 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-  std::cout << FGRN("WrongCat default constructor called\n");
+  std::cout << BOLD(FGRN("WrongCat ")) << UNDL(FGRN("default")) << FGRN(" constructor called\n");
 
   return ;
 }
 
 WrongCat::~WrongCat()
 {
-  std::cout << FRED("WrongCat destructor called\n");
+  std::cout << BOLD(FRED("WrongCat")) << FRED(" destructor called\n");
 
   return ;
 }
@@ -29,14 +29,14 @@ WrongCat::~WrongCat()
 WrongCat::WrongCat(const WrongCat& src)
 {
   *this = src;
-  std::cout << FGRN("WrongCat copy assignement called\n");
+  std::cout << BOLD(FGRN("WrongCat ")) << FGRN(" copy assignement called\n");
 
   return ;
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& src)
 {
-  std::cout << FGRN("WrongCat copy operator called\n");
+  std::cout << BOLD(FGRN("WrongCat ")) << FGRN(" copy operator called\n");
   if (this != &src) {
     _type = src._type;
   }
@@ -46,7 +46,7 @@ WrongCat& WrongCat::operator=(const WrongCat& src)
 
 void WrongCat::makeSound() const
 {
-  std::cout << KMAG << ITAL("\t* Wrong Meowing and purring  *\n") << RST;
-
+  std::cout << FMAG(ITAL("\t* Strange Meowing *\n"));
+ 
   return ;
 }
