@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svolodin <svolodin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:23:24 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 10:24:24 by svolodin         ###   ########.fr       */
+/*   Updated: 2024/05/02 14:04:50 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,24 @@
 #include <Colors.h>
 #include <iostream>
 #include <string.h>
+
+class Animal
+{
+	protected:
+
+    std::string _type;
+
+  public:
+
+    Animal( void );
+    Animal(const std::string& type);
+    Animal(const Animal& src);
+    virtual ~Animal( void );
+
+    Animal& operator=(const Animal& src);
+
+    virtual void makeSound( void ) const;
+    std::string  getType( void ) const;
+};
 
 #endif
