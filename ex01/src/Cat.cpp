@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:28:00 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/04 09:44:51 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/04 10:00:56 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Cat::Cat() :
 
 Cat::~Cat()
 {
-  std::cout << BOLD(FRED("Cat")) << FRED(" destructor called\n");
   delete _brain;
   _brain = nullptr;
+  std::cout << BOLD(FRED("Cat")) << FRED(" destructor called\n");
 
   return ;
 }

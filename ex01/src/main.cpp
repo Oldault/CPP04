@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:23:07 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/04 09:53:28 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/04 09:59:48 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,23 @@
 int main()
 {
 	std::cout << std::endl;
-	/* General constructors and destructors */
+	/* Requested Test case */
 	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-		
-		delete j;
-		delete i;
+		const int size = 6;
+    Animal** animals = new Animal*[size];
+    for (int i = 0; i < size / 2; ++i) {
+			animals[i] = new Dog();
+    }
+    for (int i = size / 2; i < size; ++i) {
+			animals[i] = new Cat();
+    }
+    for (int i = 0; i < size; ++i) {
+			animals[i]->makeSound();
+    }
+    for (int i = 0; i < size; ++i) {
+			delete animals[i];
+    }
+    delete[] animals;
 	}
 	std::cout << std::endl;
 	/* Setters and Getters for Ideas */

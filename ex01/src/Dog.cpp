@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:27:38 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/04 09:54:43 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/04 10:01:04 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Dog::Dog() :
 
 Dog::~Dog()
 {
-  std::cout << BOLD(FRED("Dog")) << FRED(" destructor called\n");
   delete _brain;
   _brain = nullptr;
+  std::cout << BOLD(FRED("Dog")) << FRED(" destructor called\n");
 
   return ;
 }
