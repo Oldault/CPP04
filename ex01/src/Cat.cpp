@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:28:00 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/03 16:20:31 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/04 09:44:51 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ Cat::~Cat()
 {
   std::cout << BOLD(FRED("Cat")) << FRED(" destructor called\n");
   delete _brain;
+  _brain = nullptr;
 
   return ;
 }
 
-Cat::Cat(const Cat& src)
+Cat::Cat(const Cat& src) :
+  Animal(src)
 {
-  *this = src;
+  _type = src._type;
+  _brain = new Brain(*src._brain);
   std::cout << BOLD(FGRN("Cat ")) << FGRN(" copy assignement called\n");
 
   return ;
@@ -41,8 +44,11 @@ Cat& Cat::operator=(const Cat& src)
 {
   std::cout << BOLD(FGRN("Cat ")) << FGRN(" copy operator called\n");
   if (this != &src) {
+    Animal::operator=(src);
     _type = src._type;
-    _brain = src._brain;
+    Brain *tempBrain = new Brain(*src._brain);
+    delete _brain;
+    _brain = tempBrain;
   }
 
   return *this;
@@ -66,4 +72,3 @@ std::string  Cat::getCatIdea(unsigned int index)
 {
   return _brain->getIdea(index);
 }
-
