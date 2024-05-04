@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 10:28:49 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/03 10:59:06 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/03 15:46:41 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Brain
     Brain& operator=(const Brain& src);
 
     void  setIdea(const std::string& idea, unsigned int index);
-    std::string&  getIdea(unsigned int index);
+    std::string  getIdea(unsigned int index);
 };
 
 #endif

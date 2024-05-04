@@ -6,20 +6,22 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 10:27:25 by svolodin          #+#    #+#             */
-/*   Updated: 2024/05/02 14:43:06 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/04 09:31:08 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal")
+Animal::Animal() :
+  _type("Animal")
 {
   std::cout << BOLD(FGRN("Animal ")) << UNDL(FGRN("default")) << FGRN(" constructor called\n");
 
   return ;
 }
 
-Animal::Animal(const std::string& type) : _type(type)
+Animal::Animal(const std::string& type) :
+  _type(type)
 {
   std::cout << BOLD(FGRN("Animal")) << FGRN(" on ") << UNDL(FGRN( << type << )) << FGRN(" constructor called\n");
 
@@ -33,9 +35,9 @@ Animal::~Animal()
   return ;
 }
 
-Animal::Animal(const Animal& src)
+Animal::Animal(const Animal& src) :
+  _type(src._type)
 {
-  *this = src;
   std::cout << BOLD(FGRN("Animal ")) << FGRN(" copy assignement called\n");
 
   return ;
