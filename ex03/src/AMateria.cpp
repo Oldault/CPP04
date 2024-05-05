@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:20:21 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/04 21:21:43 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/05 20:09:53 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 AMateria::AMateria(const std::string & type) :
   _type(type)
 {
-  std::cout << FGRN(BOLD("AMateria") " of type: " UNDL( << _type << ) " constructor called\n");
+  std::cout << FGRN(BOLD("AMateria")) << FGRN(" of type: ") << FGRN(UNDL( << _type << )) << FGRN(" constructor called\n");
 
   return ;
 }
@@ -49,11 +49,6 @@ const std::string& AMateria::getType() const
 {
   return _type;
 }
-
-// AMateria* AMateria::clone() const
-// {
-//   return new AMateria();
-// }
 
 void  AMateria::use(ICharacter& target)
 {

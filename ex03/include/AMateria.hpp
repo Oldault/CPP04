@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:16:00 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/04 21:25:11 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/05 19:26:17 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AMateria
     std::string _type;
 
   public:
-    AMateria(const std::string & type);
+    AMateria(const std::string& type);
     AMateria(const AMateria& src);
     virtual ~AMateria();
 
