@@ -6,14 +6,15 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 21:01:19 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/04 21:32:37 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 10:09:25 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(const std::string& name) :
-  _name(name)
+  _name(name),
+  _amountStored(0)
 {
   for (int i = 0; i < 4; i++) {
     _inventory[i] = nullptr;
@@ -24,7 +25,8 @@ Character::Character(const std::string& name) :
 }
 
 Character::Character(const Character& src) :
-  _name(src._name)
+  _name(src._name),
+  _amountStored(src._amountStored)
 {
   for (int i = 0; i < 4; i++) {
     _inventory[i] = src._inventory[i];
@@ -44,6 +46,21 @@ Character::~Character()
   return ;
 }
 
+Character& Character::operator=(const Character& src)
+{
+  if (this != &src) {
+    _name = src._name;
+    _amountStored = src._amountStored;
+    for (int i = 0; i < 4; i++) {
+      _inventory[i] = src._inventory[i];
+    }
+  }
+  std::cout << FGRN("Character copy operator called from " BOLD( << src._name <<)) "\n";
+
+  return *this;
+}
+
+
 const std::string& Character::getName() const
 {
   return _name;
@@ -51,13 +68,33 @@ const std::string& Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-  (void)m;
+  if (_amountStored >= 4) {
+    std::cout << BRED("Cannot equip any more Materias. Storage capacity (4) exceeded") << "\n";
+    return ;
+  }
+  for (unsigned int i = 0; i < 4; i++) {
+    if (_inventory[i] == nullptr) {
+      _inventory[i] = m;
+      _amountStored++;
+      std::cout << FYEL("Character ") << FYEL(BOLD( << _name << )) << FYEL(" just equipped the ") << FYEL(BOLD( << m->getType() << )) << FYEL(" Materia, on slot ") << FYEL(UNDL( << i << )) << FYEL(".\n");
+      return ;
+    }
+  }
+
   return ;
 }
 
 void Character::unequip(int idx)
 {
-  (void)idx;
+  if (_inventory[idx] == nullptr) {
+    std::cout << BRED("Nothing to unequip at slot ") << UNDL(BRED( << idx << )) << ".\n";
+    return ;
+  }
+  std::cout << FYEL("Unequipping slot ") << UNDL(FYEL( << idx << )) << FYEL(" storing the ") << FYEL(BOLD( << _inventory[idx]->getType() <<  )) << FYEL(" Materia.\n");
+  delete _inventory[idx];
+  _inventory[idx] = nullptr;
+  _amountStored--;
+  
   return ;
 }
 

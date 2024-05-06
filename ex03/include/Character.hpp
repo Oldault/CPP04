@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:35:46 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/04 21:28:41 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 09:48:47 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Character : public ICharacter
   private:
     std::string _name;
     AMateria* _inventory[4];
+    unsigned int _amountStored;
   
   public:
     Character(const std::string& name);
