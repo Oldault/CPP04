@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 08:51:49 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/05 19:12:30 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 09:43:40 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ MateriaSource::~MateriaSource()
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& src)
 {
-  (void)src;
+  if (this != &src) {
+    _amountStored = src._amountStored;
+    for (int i = 0; i < INV_SIZE; i++) {
+      _materias[i] = src._materias[i];
+    }
+  }
+  std::cout << FGRN( "MateriaSource " BOLD( "copy" )) << FGRN(" operator called\n");
+  
   return *this;
 }
 
@@ -62,8 +69,13 @@ void MateriaSource::learnMateria(AMateria* materia)
 
 AMateria* MateriaSource::createMateria(const std::string& type)
 {
-  (void)type;
-  AMateria* spell = NULL;
+  for (unsigned int i = 0; i < INV_SIZE; i++) {
+    if (_materias[i] && _materias[i]->getType() == type) {
+      std::cout << FMAG("Materia of type: ") << FMAG(BOLD( << type << )) << FMAG(", found.") << "\n";
+      return _materias[i]->clone();
+    }
+  }
+  std::cout << FMAG("Materia of type: ") << FMAG(BOLD( << type << )) << FMAG(", not found.") << "\n";
 
-  return spell;
+  return nullptr;
 }
