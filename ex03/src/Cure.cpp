@@ -1,58 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 19:22:28 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 11:59:22 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/05 20:10:54 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Cure.hpp"
 
-Ice::Ice() :
-  AMateria("ice")
+Cure::Cure() :
+  AMateria("cure")
 {
-  std::cout << FGRN(BOLD("Ice")) << FGRN(" constructor called\n");
+  std::cout << FGRN(BOLD("Cure")) << FGRN(" constructor called\n");
   
   return ;
 }
 
-Ice::Ice(const Ice& other) :
+Cure::Cure(const Cure& other) :
   AMateria(other)
 {
-  std::cout << FGRN(BOLD("Ice")) << FGRN(" copy constructor called\n");
+  std::cout << FGRN(BOLD("Cure")) << FGRN(" copy constructor called\n");
 
   return ;
 }
 
-Ice::~Ice()
+Cure::~Cure()
 {
-  std::cout << FRED(BOLD("Ice")) << FRED( " destructor called\n");
+  std::cout << FRED(BOLD("Cure")) << FRED( " destructor called\n");
   
   return ;
 }
 
-Ice& Ice::operator=(const Ice& other)
+Cure& Cure::operator=(const Cure& other)
 {
   if (this != &other) {
     AMateria::operator=(other);
   }
-  std::cout << FGRN(BOLD("Ice")) << FGRN(" copy operator called\n");
+  std::cout << FGRN(BOLD("Cure")) << FGRN(" copy operator called\n");
 
   return *this;
 }
 
-AMateria* Ice::clone() const
+AMateria* Cure::clone() const
 {
-  return new Ice(*this);
+  return new Cure(*this);
 }
 
-void Ice::use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
-  std::cout << FCYN("\t* shoots an ice bolt at ") FCYN( << (target.getName()) << " *\n");
+  std::cout << FCYN("\t* heals ") FCYN( << (target.getName()) << "'s wounds \n");
 
   return ;
 }

@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 21:01:19 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 11:47:58 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 11:58:06 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ const std::string& Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+  if (m == nullptr) {
+    std::cout << BRED("Cannot equip unexisting Materia") << "\n";
+    return ;
+  }
   if (_amountStored >= 4) {
     std::cout << BRED("Cannot equip any more Materias. Storage capacity (4) exceeded") << "\n";
     return ;

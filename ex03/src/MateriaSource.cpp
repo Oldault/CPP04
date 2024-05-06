@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 08:51:49 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 09:43:40 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 12:01:28 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ MateriaSource::MateriaSource(const MateriaSource& src)
 
 MateriaSource::~MateriaSource()
 {
+  for (int i = 0; i < INV_SIZE; i++) {
+    if (_materias[i] != nullptr) {
+      delete _materias[i];
+    }
+  }
   std::cout << FRED( "MateriaSource destructor called\n");
   
   return ;
