@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 21:01:19 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 10:09:25 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 11:47:58 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
   if (_inventory[idx] == nullptr) {
-    std::cout << BRED("Nothing to unequip at slot ") << UNDL(BRED( << idx << )) << ".\n";
+    std::cout << BRED("Nothing to unequip at slot ") << UNDL(BRED( << idx << )) << "\n";
     return ;
   }
   std::cout << FYEL("Unequipping slot ") << UNDL(FYEL( << idx << )) << FYEL(" storing the ") << FYEL(BOLD( << _inventory[idx]->getType() <<  )) << FYEL(" Materia.\n");
@@ -100,7 +100,11 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-  (void)idx;
-  (void)target;
+  if (_inventory[idx] == nullptr) {
+    std::cout << BRED("Nothing to use at slot ") << UNDL(BRED( << idx << )) << "\n";
+    return ;
+  }
+  _inventory[idx]->use(target);
+  
   return ;
 }

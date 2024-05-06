@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:20:21 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 09:43:00 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 10:13:14 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,4 @@ AMateria& AMateria::operator=(const AMateria&src)
 const std::string& AMateria::getType() const
 {
   return _type;
-}
-
-void  AMateria::use(ICharacter& target)
-{
-  (void)target;
-
-  return ;
 }
