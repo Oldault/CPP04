@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 21:01:19 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 11:58:06 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 17:03:58 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void Character::equip(AMateria* m)
   }
   for (unsigned int i = 0; i < 4; i++) {
     if (_inventory[i] == nullptr) {
-      _inventory[i] = m;
+      _inventory[i] = m->clone();
       _amountStored++;
       std::cout << FYEL("Character ") << FYEL(BOLD( << _name << )) << FYEL(" just equipped the ") << FYEL(BOLD( << m->getType() << )) << FYEL(" Materia, on slot ") << FYEL(UNDL( << i << )) << FYEL(".\n");
       return ;

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   tests.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/04 21:11:55 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 17:26:23 by oldault          ###   ########.fr       */
+/*   Created: 2024/05/06 17:25:02 by oldault           #+#    #+#             */
+/*   Updated: 2024/05/06 17:25:20 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.hpp"
+#pragma once
 
-int main()
-{
-  testBasicFunctionality();
-  std::cout << std::endl;
-  // testUnlearnedMateriaCreation();
-  // std::cout << std::endl;
-  // testMateriaEquippingLimits();
-  // std::cout << std::endl;
-  // testNonExistentMateriaCreation();
-  return 0;
-}
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
+void testBasicFunctionality();
+void testUnlearnedMateriaCreation();
+void testMateriaEquippingLimits();
+void testNonExistentMateriaCreation();

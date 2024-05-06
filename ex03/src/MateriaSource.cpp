@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 08:51:49 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 12:01:28 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/06 17:08:46 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& src)
 }
 
 
-void MateriaSource::learnMateria(AMateria* materia)
+void MateriaSource::learnMateria(AMateria* m)
 {
   if (_amountStored >= INV_SIZE) {
-    std::cout << BRED("Cannot store any more Materias. Storage capacity exceeded") << "\n";
+    std::cout << BRED("Cannot store any more Materias. Storage capacity (10) exceeded") << "\n";
     return ;
   }
-  _materias[_amountStored++] = materia;
+  _materias[_amountStored++] = m;
   
   return ;
 }
@@ -77,7 +77,7 @@ AMateria* MateriaSource::createMateria(const std::string& type)
   for (unsigned int i = 0; i < INV_SIZE; i++) {
     if (_materias[i] && _materias[i]->getType() == type) {
       std::cout << FMAG("Materia of type: ") << FMAG(BOLD( << type << )) << FMAG(", found.") << "\n";
-      return _materias[i]->clone();
+      return _materias[i];
     }
   }
   std::cout << FMAG("Materia of type: ") << FMAG(BOLD( << type << )) << FMAG(", not found.") << "\n";
