@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 21:11:55 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 17:26:23 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/07 13:29:57 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int main()
   // testMateriaEquippingLimits();
   // std::cout << std::endl;
   // testNonExistentMateriaCreation();
+  // std::cout << std::endl;
+  // testCopies();
   return 0;
 }

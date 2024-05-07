@@ -6,7 +6,7 @@
 /*   By: oldault <oldault@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 17:18:19 by oldault           #+#    #+#             */
-/*   Updated: 2024/05/06 17:25:42 by oldault          ###   ########.fr       */
+/*   Updated: 2024/05/07 13:28:37 by oldault          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,34 @@ void testNonExistentMateriaCreation()
 
   tmp = src->createMateria("ice");
   me->equip(tmp);
+
+  delete me;
+  delete src;
+}
+
+/*
+  - How robust are the copy operators and
+  constructors ?
+*/
+void testCopies()
+{
+  IMateriaSource *src = new MateriaSource();
+  src->learnMateria(new Ice());
+  src->learnMateria(new Cure());
+  ICharacter *me = new Character("me");
+  AMateria *tmp;
+
+  IMateriaSource *src2 = src;
+  tmp = src2->createMateria("ice");
+  me->equip(tmp);
+  
+  ICharacter *alsoMe = me;
+  AMateria *tmp2(tmp);
+  tmp2 = src2->createMateria("cure");
+  me->equip(tmp2);
+  alsoMe->use(0, *me);
+  alsoMe->unequip(1);
+  me->use(1, *alsoMe);
 
   delete me;
   delete src;
